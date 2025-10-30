@@ -1,14 +1,11 @@
+import { useDispatch, useSelector } from 'react-redux';
+
 // Finally a component that actually uses the props
-const EmailToggle = ({ user, setUser }) => {
-  const handleToggle = () => {
-    setUser({
-      ...user,
-      notifications: {
-        ...user.notifications,
-        email: !user.notifications.email,
-      },
-    });
-  };
+const EmailToggle = () => {
+  const dispatch = useDispatch();
+
+  const user = useSelector((state) => state);
+  const handleToggle = () => dispatch({ type: 'switch_email_notifications' });
 
   return (
     <div className="drilling-component">
