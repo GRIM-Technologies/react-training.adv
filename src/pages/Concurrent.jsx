@@ -3,6 +3,7 @@ import { fetchPhotos } from '../utils';
 import { svg_grid, svg_gradient } from '../constants';
 import { Concurrent as ProblemStatement } from '../components/Problems';
 import EmptyList from '../components/EmptyList';
+import Counter from '../components/Counter';
 
 const PhotoItem = ({ id, title, url, thumbnailUrl }) => {
   const [src, setSrc] = useState(thumbnailUrl);
@@ -38,6 +39,13 @@ const Concurrent = () => {
     <section className="content-section">
       <ProblemStatement />
 
+      <hr />
+
+      <Counter />
+
+      <hr />
+
+      <h3>Concurrency:</h3>
       <div className="button-group">
         <button
           className={`btn btn--primary`}
