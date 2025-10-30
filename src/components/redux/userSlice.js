@@ -3,7 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   name: 'John Doe',
   email: 'john.doe@bank.com',
-  notifications: { email: true, sms: false },
+  notifications: {
+    email: true,
+    sms: false,
+  },
+  status: 'Idle',
 };
 
 const userSlice = createSlice({
@@ -13,8 +17,14 @@ const userSlice = createSlice({
     toggleEmailNotifications: (state) => {
       state.notifications.email = !state.notifications.email;
     },
+    setStatus: (state, action) => {
+      state.status = action.payload;
+    },
+    startTransfer: (state) => {
+      state.status = 'Transfer started...';
+    },
   },
 });
 
-export const { toggleEmailNotifications } = userSlice.actions;
+export const { toggleEmailNotifications, setStatus, startTransfer } = userSlice.actions;
 export default userSlice.reducer;
