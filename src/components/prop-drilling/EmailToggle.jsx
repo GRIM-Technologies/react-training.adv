@@ -1,13 +1,16 @@
-// Finally a component that actually uses the props
-const EmailToggle = ({ user, setUser }) => {
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleEmailNotifications, startTransfer } from '../redux/userSlice';
+
+const EmailToggle = () => {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   const handleToggle = () => {
-    setUser({
-      ...user,
-      notifications: {
-        ...user.notifications,
-        email: !user.notifications.email,
-      },
-    });
+    dispatch(toggleEmailNotifications());
+  };
+
+  const handleTransfer = () => {
+    dispatch(startTransfer());
   };
 
   return (
@@ -16,14 +19,17 @@ const EmailToggle = ({ user, setUser }) => {
       <p>
         Current email notifications: {user.notifications.email ? 'ON' : 'OFF'}
       </p>
-
       <button
         onClick={handleToggle}
-        className={`btn ${
-          user.notifications.email ? 'btn--secondary' : 'btn--success'
-        }`}
+        className={`btn ${user.notifications.email ? 'btn--secondary' : 'btn--success'}`}
       >
         Turn Email Notifications {user.notifications.email ? 'OFF' : 'ON'}
+      </button>
+
+      <hr />
+      <p>Status: {user.status}</p>
+      <button onClick={handleTransfer} className="btn btn--primary">
+        Start Money Transfer
       </button>
     </div>
   );
