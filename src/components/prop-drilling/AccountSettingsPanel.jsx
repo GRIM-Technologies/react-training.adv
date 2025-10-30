@@ -5,7 +5,7 @@ const AccountSettingsPanel = ({ user, setUser }) => {
   return (
     <div className="drilling-component">
       <h2>Account Settings Panel</h2>
-      <SettingsContainer user={user} setUser={setUser} />
+      <SettingsContainer />
     </div>
   );
 };

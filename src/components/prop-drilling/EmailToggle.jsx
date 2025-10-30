@@ -1,14 +1,9 @@
-// Finally a component that actually uses the props
-const EmailToggle = ({ user, setUser }) => {
-  const handleToggle = () => {
-    setUser({
-      ...user,
-      notifications: {
-        ...user.notifications,
-        email: !user.notifications.email,
-      },
-    });
-  };
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleEmailNotifications } from '../redux/userSlice';
+
+const EmailToggle = () => {
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   return (
     <div className="drilling-component">
@@ -18,7 +13,7 @@ const EmailToggle = ({ user, setUser }) => {
       </p>
 
       <button
-        onClick={handleToggle}
+        onClick={() => dispatch(toggleEmailNotifications())}
         className={`btn ${
           user.notifications.email ? 'btn--secondary' : 'btn--success'
         }`}
