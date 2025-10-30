@@ -1,11 +1,19 @@
 import React from 'react';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
 import { BrowserRouter, Routes, Route } from 'react-router';
 import './styles/index.css';
 
 import userReducer from './reducers/userReducer';
+import sagas from './sagas';
+
+const sagaMiddleware = createSagaMiddleware();
+
+const rootReducer = combineReducers({
+  user: userReducer,
+});
 
 // Layout
 import Layout from './components/Layout';
@@ -18,10 +26,17 @@ import Hooks from './pages/Hooks';
 import OptimisticUpdates from './pages/OptimisticUpdates';
 import Debugging from './pages/Debugging';
 
-let store = createStore(
-  userReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+const composeEnhancers =
+  (typeof window !== 'undefined' &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  applyMiddleware;
+
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(sagaMiddleware)),
 );
+
+sagaMiddleware.run(sagas);
 
 const root = createRoot(document.getElementById('root'));
 root.render(
