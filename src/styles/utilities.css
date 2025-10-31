@@ -66,3 +66,7 @@
 .text-capitalize {
   text-transform: capitalize;
 }
+
+.center-flow {
+  text-align: center;
+}
