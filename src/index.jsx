@@ -10,6 +10,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Concurrent from './pages/Concurrent';
 import State from './pages/State';
+import Hooks from './pages/Hooks';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
           <Route index element={<Home />} />
           <Route path="concurrent" element={<Concurrent />} />
           <Route path="state" element={<State />} />
+          <Route path="hooks" element={<Hooks />} />
           {/* Catch all - replace with a NotFound component if desired */}
           <Route path="*" element={<Home />} />
         </Route>

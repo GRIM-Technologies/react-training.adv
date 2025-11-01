@@ -4,6 +4,7 @@ const Layout = () => {
   const navigationLinks = [
     { id: 2, title: 'Concurrent Features', path: '/concurrent' },
     { id: 3, title: 'State', path: '/state' },
+    { id: 4, title: 'Hooks', path: '/hooks' },
   ];
 
   return (

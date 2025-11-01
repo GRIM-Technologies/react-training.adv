@@ -36,3 +36,26 @@ export const fetchPhotos = async (callback) => {
     console.error(e);
   }
 };
+
+export const fetchFrom = async (resource, callback) => {
+  try {
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/${resource}`,
+    );
+    if (!response.ok) throw new Error(`HTTP error! ${response.status}`);
+
+    const data = await response.json();
+    callback(data);
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export const permissions = [
+  'ACCESS_USERS',
+  'ACCESS_ALBUMS',
+  //'ACCESS_PHOTOS',
+  //'ACCESS_TODOS',
+  //'ACCESS_POSTS',
+  //'ACCESS_COMMENTS',
+];
