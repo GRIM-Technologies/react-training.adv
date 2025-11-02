@@ -11,6 +11,7 @@ import Home from './pages/Home';
 import Concurrent from './pages/Concurrent';
 import State from './pages/State';
 import Hooks from './pages/Hooks';
+import Debugging from './pages/Debugging';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +23,7 @@ root.render(
           <Route path="concurrent" element={<Concurrent />} />
           <Route path="state" element={<State />} />
           <Route path="hooks" element={<Hooks />} />
+          <Route path="debugging" element={<Debugging />} />
           {/* Catch all - replace with a NotFound component if desired */}
           <Route path="*" element={<Home />} />
         </Route>

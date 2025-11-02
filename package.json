@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",
+    "@faker-js/faker": "^10.1.0",
     "@rsbuild/core": "^1.5.14",
     "@rsbuild/plugin-react": "^1.4.1",
     "eslint": "^9.35.0",
