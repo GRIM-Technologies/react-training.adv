@@ -5,7 +5,8 @@ const Layout = () => {
     { id: 2, title: 'Concurrent Features', path: '/concurrent' },
     { id: 3, title: 'State', path: '/state' },
     { id: 4, title: 'Hooks', path: '/hooks' },
-    { id: 5, title: 'Debugging', path: '/debugging' },
+    { id: 5, title: 'Optimistic Updates', path: '/optimistic-updates' },
+    { id: 6, title: 'Debugging', path: '/debugging' },
   ];
 
   return (

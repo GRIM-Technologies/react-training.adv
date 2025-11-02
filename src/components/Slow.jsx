@@ -11,7 +11,7 @@ const Slow = ({ dep }) => {
         setN(n + 1);
       }}
     >
-      Re-render please ({n})
+      Re-render slow component ({n})
     </button>
   );
 };

@@ -18,7 +18,13 @@ const UserListItem = ({ id, name, company }) => {
 
 const users = makeUsers();
 const UsersList = () => {
-  return users.map((user) => <UserListItem key={user.id} {...user} />);
+  return (
+    <ul>
+      {users.map((user) => (
+        <UserListItem key={user.id} {...user} />
+      ))}
+    </ul>
+  );
 };
 
 export default UsersList;

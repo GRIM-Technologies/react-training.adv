@@ -6,10 +6,12 @@ const Debugging = () => {
     <div className="content-section">
       <h2 className="section-title">Debugging</h2>
 
-      <UsersList />
+      <h3>Profile example:</h3>
+      <Slow />
       <hr />
 
-      <Slow />
+      <h3>Exercise:</h3>
+      <UsersList />
     </div>
   );
 };

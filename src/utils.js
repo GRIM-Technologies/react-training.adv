@@ -115,3 +115,8 @@ export const complexComputation = () => {
 
   return Math.floor(result);
 };
+
+export const deletePost = async (id) => {
+  await new Promise((resolve, reject) => setTimeout(resolve, 1500));
+  return { success: true, id };
+};

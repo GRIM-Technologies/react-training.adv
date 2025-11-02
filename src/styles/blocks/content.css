@@ -85,6 +85,14 @@
   gap: var(--space-md);
 }
 
+.post {
+  border: 1px solid var(--color-border);
+  background: white;
+  margin: var(--space-md) 0;
+  padding: var(--space-md);
+  border-radius: var(--space-sm);
+}
+
 @media (min-width: 768px) {
   .section-title {
     font-size: 1.75rem;
